@@ -26,6 +26,13 @@
   <pre id="psf-code"></pre>
 </div>
 
+<div class="card" id="tog">
+  <h2>toc_outline_generator.yml</h2>
+  <p>ブログ記事の目次を作ってもらうためのプロンプト。合わせて、記事テーマを指定してください。</p>
+  <button onclick="copyTxt('tog')">コピー</button><span id="tog-state" class="loading"> 読み込み中…</span>
+  <pre id="tog-code"></pre>
+</div>
+
 <script>
 async function load(id, url){
   const txt = await fetch(url).then(r=>r.text());
@@ -42,6 +49,7 @@ function copyTxt(id){
 }
 /* --- ここにテンプレートを列挙して読み込む --- */
 load('psf','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main/primary_source_finder.yml');
+load('tog','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main/toc_outline_generator.yml');
 </script>
 </body>
 </html>
