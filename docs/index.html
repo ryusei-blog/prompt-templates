@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>prompt-templates – Copy Hub</title>
+  <style>
+    body{font-family:ui-monospace,monospace;max-width:800px;padding:2rem;margin:auto}
+    h1{font-size:1.5rem;margin-bottom:.5rem}
+    button{padding:.3rem .8rem;border:1px solid #666;border-radius:.3rem;cursor:pointer}
+    pre{background:#f6f8fa;border:1px solid #ddd;padding:1rem;overflow:auto;border-radius:.4rem}
+    .card{border:1px solid #ccc;border-radius:.6rem;padding:1rem;margin:1.5rem 0}
+    .msg{margin-left:.8rem;color:#3c8527;font-weight:bold}
+    .loading{color:#888}
+  </style>
+</head>
+<body>
+
+<h1>prompt-templates</h1>
+<p>クリック1回でプロンプト全文をコピーできます。</p>
+
+<!-- ── template card ── -->
+<div class="card" id="psf">
+  <h2>primary_source_finder.yml</h2>
+  <p>Markdown記事内の引用・統計フレーズを検出し、一次情報URLを検索してMarkdownテーブルで返すプロンプト。</p>
+  <button onclick="copyTxt('psf')">コピー</button><span id="psf-state" class="loading"> 読み込み中…</span>
+  <pre id="psf-code"></pre>
+</div>
+
+<script>
+async function load(id, url){
+  const txt = await fetch(url).then(r=>r.text());
+  document.getElementById(id+'-code').textContent = txt;
+  document.getElementById(id+'-state').textContent = '';
+  window[id+'Txt'] = txt;
+}
+function copyTxt(id){
+  navigator.clipboard.writeText(window[id+'Txt']).then(()=>{
+     const s=document.getElementById(id+'-state');
+     s.textContent='✅ コピーしました！';
+     setTimeout(()=>s.textContent='',2000);
+  });
+}
+/* --- ここにテンプレートを列挙して読み込む --- */
+load('psf','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main/primary_source_finder.yml');
+</script>
+</body>
+</html>
