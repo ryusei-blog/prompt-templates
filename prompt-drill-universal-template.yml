@@ -3,8 +3,7 @@ placeholders:
   task: ""
   description: ""
   trainee_level: ""
-  blog_snapshot_file: ""
-  pps_goal: ""
+  reference_file: ""
   answer_char_limit: 300
   feedback_char_limit: 300
   max_rounds: 10
@@ -15,22 +14,22 @@ prompt_template:
   description: "{{description}}"
   language: "ja"
   trainee_level: "{{trainee_level}}"
-  blog_snapshot: "{{blog_snapshot_file}}"
-  metrics_goal:
-    page_per_session: "{{pps_goal}}"
+  reference: "{{reference_file}}"
   limits:
     answer_chars: "{{answer_char_limit}}"
     feedback_chars: "{{feedback_char_limit}}"
   workflow:
-    - id: "round_start"
+    - id: "execute_task"
       instruction: >
-        Use blog_snapshot and past_rounds to generate Problem {{round_number}} requiring a practical SEO/LLMO decision. Present clear parameters and data.
-    - id: "user_answer"
+        Assume the role of {{role}} and immediately perform {{task}} using any
+        relevant details in {{description}} and {{reference_file}} (if provided).
+        Answer in {{language}} within {{answer_char_limit}} characters unless
+        otherwise specified.
+    - id: "await_feedback"
       instruction: >
-        Await user's answer in YAML with keys answer, reason, step, concerns_and_solutions.
-    - id: "assistant_feedback"
-      instruction: >
-        Evaluate the answer against completeness, ROI reasoning, numerical justification, and format compliance. Provide feedback within {{feedback_char_limit}} characters.
+        Wait for user feedback or further instructions. If feedback is provided,
+        revise your previous response within {{feedback_char_limit}} characters.
     - id: "prepare_next_round"
       instruction: >
-        Generate the next problem building on previous answer and updated context. Stop after {{max_rounds}} rounds or when user says stop.
+        Repeat the execute–feedback cycle until the user explicitly says "stop"
+        or after {{max_rounds}} rounds.
