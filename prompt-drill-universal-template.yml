@@ -1,6 +1,7 @@
 placeholders:
   role: ""
   task: ""
+  constraints: ""
   description: ""
   trainee_level: ""
   reference_file: ""
@@ -21,10 +22,9 @@ prompt_template:
   workflow:
     - id: "execute_task"
       instruction: >
-        Assume the role of {{role}} and immediately perform {{task}} using any
-        relevant details in {{description}} and {{reference_file}} (if provided).
-        Answer in {{language}} within {{answer_char_limit}} characters unless
-        otherwise specified.
+        Assume the role of {{role}} and immediately perform {{task}} using any 
+        relevant details in {{description}} and {{reference_file}} (if provided), while adhering to {{constraints}}.
+        Unless otherwise specified, answer in {{language}} within {{answer_char_limit}} characters.
     - id: "await_feedback"
       instruction: >
         Wait for user feedback or further instructions. If feedback is provided,
