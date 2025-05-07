@@ -4,8 +4,8 @@ placeholders:
   description: ""
   trainee_level: ""
   reference_file: ""
-  answer_char_limit: 300
-  feedback_char_limit: 300
+  answer_char_limit: 3000
+  feedback_char_limit: 3000
   max_rounds: 10
 
 prompt_template:
