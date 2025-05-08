@@ -40,6 +40,13 @@
   <pre id="pdut-code"></pre>
 </div>
 
+<div class="card" id="fep">
+  <h2 id="fep">prompt-drill-universal-template.yml</h2>
+  <p>AIに役割（role）と課題（task）を与えて、AI講師としてユーザーを教育させるためのプロンプトです。例えば「role: "ベテランSEOランナー"」と「task: "SEO初心者であるユーザーにSEOの問題を出題する"」といった使い方ができます。</p>
+  <button onclick="copyTxt('fep')">コピー</button><span id="fep-state" class="loading"> 読み込み中…</span>
+  <pre id="fep-code"></pre>
+</div>
+
 <script>
 async function load(id, url){
   const txt = await fetch(url).then(r=>r.text());
@@ -58,6 +65,7 @@ function copyTxt(id){
 load('psf','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main/primary_source_finder.yml');
 load('tog','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main/toc_outline_generator.yml');
 load('pdut','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main/prompt-drill-universal-template.yml');
+load('fep','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main/fermi_estimator_prompt.yml');
 </script>
 </body>
 </html>
