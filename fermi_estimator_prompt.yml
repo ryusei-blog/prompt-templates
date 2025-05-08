@@ -1,0 +1,43 @@
+tool:
+  id: fermi_estimator_prompt
+  name: Fermi Estimator Prompt
+  description: |
+    高度な Chain‑of‑Thought 推論を活用し、
+    前提 → 計算 → 結論 を体系的に示すフェルミ推定専用プロンプト
+
+task: ""
+
+prompt: |
+  あなたはフェルミ推定の世界的エキスパートです。
+  下記タスクについてフェルミ推定を行ってください。
+
+  タスク: "{{task}}"
+
+  必須要件:
+    1. 問題を自分の言葉で再構築する。
+    2. サブ問題に分解し、各サブ問題に必要な前提値を列挙する。
+    3. 前提値ごとに妥当な根拠を添える。
+    4. 10 のべき乗を用いた概算で計算を行う。
+    5. 各計算ステップを式とともに示す。
+    6. 最終値に対して Lower–Best–Upper のレンジと信頼度を付ける。
+    7. 出力フォーマットを厳守する。
+
+output_format: |
+  restated_task: <string>
+  assumptions:
+    - item: <string>
+      value: <number>
+      unit: <string>
+      rationale: <string>
+  calculations:
+    - step: <string>
+      formula: <string>
+      result: <number>
+      unit: <string>
+  final_estimate:
+    lower: <number>
+    best: <number>
+    upper: <number>
+    unit: <string>
+    confidence_level: <string>
+  discussion: <string>
