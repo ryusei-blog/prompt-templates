@@ -1,3 +1,4 @@
+```yaml
 tool:
   id: fermi_estimator_prompt
   name: Fermi Estimator Prompt
@@ -41,3 +42,4 @@ output_format: |
     unit: <string>
     confidence_level: <string>
   discussion: <string>
+```
