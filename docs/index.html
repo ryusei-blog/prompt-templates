@@ -47,6 +47,13 @@
   <pre id="fep-code"></pre>
 </div>
 
+<div class="card" id="cafp">
+  <h2 id="cafp">client_acquisition_flow_prompt.yml</h2>
+  <p>高度な推論能力を持つAIモデルへの指示に最適な、フェルミ推定をさせるためのプロンプトです。ユーザーは`task: ""`を設定するだけでOK。何か特定のテーマを与えて実行させてみましょう。</p>
+  <button onclick="copyTxt('cafp')">コピー</button><span id="cafp-state" class="loading"> 読み込み中…</span>
+  <pre id="cafp-code"></pre>
+</div>
+  
 <script>
 async function load(id, url){
   const txt = await fetch(url).then(r=>r.text());
@@ -66,6 +73,7 @@ load('psf','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main/
 load('tog','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main/toc_outline_generator.yml');
 load('pdut','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main/prompt-drill-universal-template.yml');
 load('fep','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main/fermi_estimator_prompt.yml');
+load('cafp','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main/client_acquisition_flow_prompt.yml');
 </script>
 </body>
 </html>
