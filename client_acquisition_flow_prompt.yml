@@ -4,10 +4,10 @@ tool:
   name: ClientAcquisitionFlowPrompt
 
 variables:
-  target_annual_income: 10000000          # 例: 目標年収（円）
-  billable_hours_per_month: 160           # 例: 月間請求可能時間（h）
-  utilization_rate: 0.8                   # 例: 稼働率 (0–1)
-  hourly_rate: 6510.49                    # 例: 必要時給（円）
+  target_annual_income: ""          # 例: 目標年収（円）
+  billable_hours_per_month: ""           # 例: 月間請求可能時間（h）
+  utilization_rate: ""                   # 例: 稼働率 (0–1)
+  hourly_rate: ""                    # 例: 必要時給（円）
 
 prompt:
   system: |
