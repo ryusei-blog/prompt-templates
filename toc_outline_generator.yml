@@ -1,3 +1,4 @@
+```yaml
 role: toc_outline_generator
 task: >
   指定されたテーマと構成ルールに沿って、
@@ -50,3 +51,4 @@ notes:
     summary_title: "まとめ"
 
 version: "1.0"
+```
