@@ -1,3 +1,4 @@
+```yaml
 placeholders:
   role: ""
   task: ""
@@ -33,3 +34,4 @@ prompt_template:
       instruction: >
         Repeat the execute–feedback cycle until the user explicitly says "stop"
         or after {{max_rounds}} rounds.
+```
