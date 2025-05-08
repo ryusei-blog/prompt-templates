@@ -1,0 +1,44 @@
+```yaml
+tool:
+  id: client_acquisition_flow_prompt
+  name: ClientAcquisitionFlowPrompt
+
+variables:
+  target_annual_income: 10000000          # 例: 目標年収（円）
+  billable_hours_per_month: 160           # 例: 月間請求可能時間（h）
+  utilization_rate: 0.8                   # 例: 稼働率 (0–1)
+  hourly_rate: 6510.49                    # 例: 必要時給（円）
+
+prompt:
+  system: |
+    あなたはベテランの職能エージェントであり、
+    フリーランスが案件を獲得し目標収益を実現するための
+    行動計画を設計する専門家です。
+    明示的なChain of Thoughtを用い、
+    論理的かつ網羅的にステップを提示してください。
+  user: |
+    目標年収は{{target_annual_income}}円、
+    月間請求可能時間は{{billable_hours_per_month}}時間、
+    想定稼働率は{{utilization_rate}}です。
+    この設定で案件を獲得するための具体的行動フローを
+    フェーズ別に提案してください。
+
+    出力要件:
+      1. フェーズ名、期間目安、主要行動、期待成果をテーブル形式で提示
+      2. 各行動に優先度 (高・中・低) と推定所要時間 (h) を付与
+      3. フェーズ完了後の評価基準 (定量指標) を記載
+      4. 1ページ相当の分量に収める
+      5. 日本語で回答する
+
+workflow:
+  - id: analyze_input
+    action: 入力変数を分解し必要な売上単価と目標案件数を計算
+  - id: design_phases
+    action: 市場調査・自己ブランディング・リード生成・商談・契約の5フェーズに分類
+  - id: detail_actions
+    action: 各フェーズで実施する具体的行動を優先度順に列挙し所要時間を推定
+  - id: compile_table
+    action: 要件を満たすテーブルを生成し整形
+  - id: validate_output
+    action: 目標収益と稼働率の整合性を最終チェックし改善案があれば追記
+```
