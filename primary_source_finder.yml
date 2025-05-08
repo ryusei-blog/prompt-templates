@@ -1,3 +1,4 @@
+```yaml
 role: primary_source_finder
 task: "ユーザーが渡す記事内で引用や統計が言及されている箇所の一次情報URLを検索し、Markdownテーブルで整理して返す"
 input_spec:
@@ -31,3 +32,4 @@ notes:
   max_candidates_per_phrase: 1
 
 version: "1.0"
+```
