@@ -1,0 +1,44 @@
+```yaml
+tool:
+  id: fermi_insight_analyzer_prompt
+  name: Fermi Insight Analyzer Prompt
+  description: |
+    Leverages the structured output of “fermi_estimator_prompt” to reveal the target’s
+    pain points and predict their probable next actions through disciplined reasoning.
+
+input_spec:
+  fields:
+    fermi_result: "Paste the full YAML (or JSON-equivalent) object returned by fermi_estimator_prompt"
+
+task: >
+  Using the supplied Fermi estimation results, identify concrete challenges the
+  estimation target is likely experiencing and propose realistic next actions
+  they may take. Ground every inference in numerical or contextual evidence
+  found within the Fermi output.
+
+prompt: |
+  You are a senior strategist specializing in market analysis, behavioral
+  economics, and business development. Examine the provided Fermi estimation
+  results and follow these steps:
+
+  1. Restate the overall situation in your own words.
+  2. List up to five key pain points the target probably perceives.
+  3. For each pain point, cite specific numbers or insights from the Fermi
+     calculations that justify your inference.
+  4. Deduce up to five actionable steps the target is likely to consider next,
+     linking each to its relevant pain point and quantitative evidence.
+  5. Prioritize the actions by feasibility and expected impact.
+  6. Conclude with a concise strategic summary.
+
+output_format: |
+  restated_situation: <string>
+  pain_points:
+    - item: <string>
+      evidence: <string>
+  next_actions:
+    - action: <string>
+      linked_pain_point: <string>
+      evidence: <string>
+      priority: <string>
+  strategic_summary: <string>
+```
