@@ -47,6 +47,13 @@
   <pre id="fep-code"></pre>
 </div>
 
+<div class="card" id="fiap">
+  <h2 id="fiap">fermi_insight_analyzer_prompt.yml</h2>
+  <p>上記`fermi_estimator_prompt.yml`の出力結果をもとに、対象が感じていそうな課題や次に取りそうな行動を論理的に導出するプロンプトです。ビジネス戦略の仮説検証や施策立案の補助として活用できます。`fermi_estimator_prompt.yml`の実行直後にそのまま使えます。</p>
+  <button onclick="copyTxt('fiap')">コピー</button><span id="fiap-state" class="loading"> 読み込み中…</span>
+  <pre id="fiap-code"></pre>
+</div>
+
 <div class="card" id="cafp">
   <h2 id="cafp">client_acquisition_flow_prompt.yml</h2>
   <p>高度な推論能力を持つAIモデルへの指示に最適な、フェルミ推定をさせるためのプロンプトです。ユーザーは`task: ""`を設定するだけでOK。何か特定のテーマを与えて実行させてみましょう。</p>
@@ -73,6 +80,7 @@ load('psf','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main/
 load('tog','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main/toc_outline_generator.yml');
 load('pdut','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main/prompt-drill-universal-template.yml');
 load('fep','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main/fermi_estimator_prompt.yml');
+load('fiap','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main/fermi_insight_analyzer_prompt.yml');
 load('cafp','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main/client_acquisition_flow_prompt.yml');
 </script>
 </body>
