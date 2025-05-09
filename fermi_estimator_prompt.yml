@@ -24,6 +24,7 @@ prompt: |
     7. 出力フォーマットを厳守する。
 
 output_format: |
+  title: <string>
   restated_task: <string>
   assumptions:
     - item: <string>
