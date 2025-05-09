@@ -32,6 +32,7 @@ prompt: |
   6. Conclude with a concise strategic summary.
 
 output_format: |
+  title: <string>
   restated_situation: <string>
   pain_points:
     - item: <string>
