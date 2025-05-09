@@ -17,6 +17,12 @@ task: >
   they may take. Ground every inference in numerical or contextual evidence
   found within the Fermi output.
 
+fact_checking:
+  web_search: optional
+  method: >
+    必要に応じてウェブ検索を併用し、フェルミ推定結果を補完・補強する
+    数値やトレンド情報があれば根拠として明記してください。
+
 prompt: |
   You are a senior strategist specializing in market analysis, behavioral
   economics, and business development. Examine the provided Fermi estimation
