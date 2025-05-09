@@ -1,0 +1,85 @@
+```yaml
+tool:
+  id: strategy_implementation_prompt
+  name: Strategy & Implementation Prompt
+  description: >
+    「fermi_estimator_prompt」と「fermi_insight_analyzer_prompt」の
+    出力（市場規模推定・課題分析）を前提に、実行可能な
+    ビジネス戦略と具体的な実装ロードマップを策定する
+    フェーズ用プロンプト。CoT 重視で詳細設計を行う。
+
+language: "ja"
+output_length: 3000
+
+input_spec:
+  fields:
+    estimate_result: "YAML/JSON オブジェクト（fermi_estimator_prompt の出力）"
+    insight_result: "YAML/JSON オブジェクト（fermi_insight_analyzer_prompt の出力）"
+
+task: >
+  上記 2 つの結果を統合し、ターゲット事業者に向けた
+  具体的な市場進出戦略・施策設計・技術実装手順を提示せよ。
+
+prompt: |
+  あなたは生成 AI ソリューションの事業開発ディレクターです。
+  estimate_result と insight_result を読み込み、次の手順で回答してください。
+
+  1. 要点要約  
+     - estimate_result と insight_result の核心を 3〜4 行でまとめる。
+
+  2. 戦略ゴール定義  
+     - ビジネス的目標（例: 1 年後に導入 500 社）を定義。  
+     - 成功指標 (KPI) を 3 つ挙げる。
+
+  3. 市場セグメンテーションとポジショニング  
+     - ペルソナを 2〜3 種類に分ける。  
+     - 価値提案 (UVP) をペルソナごとに端的に示す。
+
+  4. 施策カタログ  
+     - 「プロダクト」「マーケティング」「セールス」「カスタマーサクセス」
+       の 4 領域で主要施策を箇条書き。  
+     - 各施策に根拠となる数値 (estimate/insight) を引用。
+
+  5. 実装ロードマップ  
+     - フェーズ別 (PoC → β → 本番) にタスク、所要期間、必要リソース、
+       依存関係を整理。  
+     - リスクと緩和策も併記。
+
+  6. 評価・改善フレーム  
+     - データ収集方法、分析指標、改善サイクル (PDCA) を示す。
+
+  7. 結論  
+     - 総括と次のアクションを 150 字以内でまとめる。
+
+output_format: |
+  title: <string>
+  summary: <string>
+  strategic_goal:
+    goal_statement: <string>
+    kpis:
+      - <string>
+  segmentation_positioning:
+    - persona: <string>
+      uvp: <string>
+  initiatives:
+    product:
+      - <string>
+    marketing:
+      - <string>
+    sales:
+      - <string>
+    customer_success:
+      - <string>
+  implementation_roadmap:
+    - phase: <string>
+      duration: <string>
+      tasks:
+        - <string>
+      resources: <string>
+      risks: <string>
+  evaluation_framework:
+    metrics:
+      - <string>
+    analysis_cycle: <string>
+  conclusion: <string>
+```
