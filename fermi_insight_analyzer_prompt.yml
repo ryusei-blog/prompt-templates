@@ -5,6 +5,7 @@ tool:
   description: |
     Leverages the structured output of “fermi_estimator_prompt” to reveal the target’s
     pain points and predict their probable next actions through disciplined reasoning.
+  language: "ja"
 
 input_spec:
   fields:
