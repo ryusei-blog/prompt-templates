@@ -74,6 +74,13 @@
   <button onclick="copyTxt('gks')">コピー</button><span id="gks-state" class="loading"> 読み込み中…</span>
   <pre id="gks-code"></pre>
 </div>
+
+<div class="card" id="hkt">
+  <h2 id="hkt">hybrid-knowledge-template.md</h2>
+  <p>自然文で書かれた仕様や事実リストを「粒度を保ったまま構造化」するためのハイブリッドYAMLテンプレートを提供します。structured形式で機械可読性を確保しつつ、raw_factsで元の情報を完全保存。AI活用・ドキュメント整備・ナレッジ管理に最適です。</p>
+  <button onclick="copyTxt('hkt')">コピー</button><span id="hkt-state" class="loading"> 読み込み中…</span>
+  <pre id="hkt-code"></pre>
+</div>
   
 <script>
 async function load(id, url){
@@ -98,6 +105,7 @@ load('fiap','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main
 load('sip','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main/strategy_implementation_prompt.yml');
 load('cafp','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main/client_acquisition_flow_prompt.yml');
 load('gks','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main/gpts_knowledge_setup.yml');
+load('hkt','https://raw.githubusercontent.com/ryusei-blog/prompt-templates/main/hybrid-knowledge-template.md');
 </script>
 </body>
 </html>
