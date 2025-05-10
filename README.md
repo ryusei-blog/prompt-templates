@@ -16,3 +16,4 @@ AI用プロンプトを再利用可能なYAMLテンプレート集です。
 | `strategy_implementation_prompt.yml` | 上記2つのフェルミ推定で得られた市場規模と課題分析をもとに、具体的な戦略設計・施策立案・実装ロードマップまでを一気通貫で導出するためのプロンプトです。ブログ記事や提案資料の骨子づくりに活用できます。 | [open](https://ryusei-blog.github.io/prompt-templates/#sip) |
 | `client_acquisition_flow_prompt.yml` | ベテランの職能エージェントとして、フリーランスが案件を獲得し目標収益を実現するための行動計画を設計します。目標年収や月間稼働時間などを設定するだけで案件獲得を支援してくれます。 | [open](https://ryusei-blog.github.io/prompt-templates/#cafp) |
 | `gpts_knowledge_setup.yml` | ChatGPTのGPTsの情報をインプットさせるためのセットアップ用プロンプトです。ChatGPTは自分の機能のくせにGPTsの仕様を全て把握していないため、それを分からせるための教育プロンプトです。 | [open](https://ryusei-blog.github.io/prompt-templates/#gks) |
+| `hybrid-knowledge-template.md` | 自然文で書かれた仕様や事実リストを「粒度を保ったまま構造化」するためのハイブリッドYAMLテンプレートを提供します。structured形式で機械可読性を確保しつつ、raw_factsで元の情報を完全保存。AI活用・ドキュメント整備・ナレッジ管理に最適です。 | [open](https://ryusei-blog.github.io/prompt-templates/#hkt) |
