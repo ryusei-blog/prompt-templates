@@ -1,4 +1,3 @@
-```yaml
 tool:
   id: gpts_knowledge_setup
   name: GPTs Knowledge Setup
@@ -10,41 +9,182 @@ tool:
 language: "ja"
 output_length: 200  # 読み込み確認メッセージのみを想定
 
-# ───────────────────────────────────────
-# GPTs 仕様ファクト
-# ───────────────────────────────────────
-facts:
-  - GPTsの読みは「ジーピーティーエス」が正しい。
-  - GPTsのベースモデルはGPT-4o固定でユーザー側では変更不可。
-  - GPTs自体は自律学習しない
-  - 編集画面へのアクセス方法は、「ChatGPTホーム画面の右上のアカウントアイコンをクリック ▸ マイGPT ▸ GPTを作成する」。GPTs作成画面をブラウザブックマークしておけばアクセスを時短可能。マイGPT画面ではこれまで作ったGPTsを時系列で確認できる。
-  - GPTsにおいても時間あたりの使用制限はGPT-4oと同じく、3時間あたり80回まで。最上位のProプランであれば無制限。
-  - GPTsを編集できるのは作成者のみ。ただしチームプランであればチーム全員が編集画面にアクセス可能。
-  - 回答ログを保持・エクスポート（PDFやCSVなど）する機能は一切存在しない。
-  - GPTsの設定そのものをエクスポートする機能は一切存在しない。
-  - ChatGPTプロジェクト機能のようにチャットを保管するための専用のフォルダ環境は存在しない。通常のChatGPTでのチャットと同じくサイドバーに表示される。
-  - システムプロンプトは最大8,000文字。超過する指示はナレッジファイルで追加する。
-  - 高度なボイスモード（Advanced voice mode）を使用可能。
-  - 音声入力にも対応。
-  - 最低限、「名前」と「指示」を設定しないとGPTsを作成できない。
-  - ナレッジファイルは編集画面「知識 ▸ ファイルをアップロードする」から追加する。
-  - ファイル追加後は必ず「機能 ▸ コードインタープリターとデータ分析」にチェックを入れる（初期OFF）。
-  - アップロードしたナレッジファイルをGPTsの編集画面上では編集が一切できない。ファイルの更新があった場合は、既存ファイルを削除して再アップが必須。
-  - API連携は「アクション ▸ 新しいアクションを設定する」で追加できる。
-  - 画像生成は GPT-4o Image Generation が利用可能。GPTsアイキャッチ自動生成は DALL·E 固定。
-  - 共有リンクは一度のみ発行可能。再発行したい場合はGPTsを新規作成し直す。
-  - GPTsはChatGPT内限定機能で、外部サイトや独自ドメインへ直接埋め込むことはできない。
-  - GPTsの「作成」には有料プラン加入が必須。無料ユーザーは「使用」のみ可能で回数制限が厳しい。
-  - GPTs編集画面最下部「追加設定」に「GPTで会話データを使用してモデルを改善する」のチェックがあり、初期ON。不要なら手動でOFFにする。
-  - GPTsにアップロードできる主なファイル形式: .txt .pdf .doc/.docx .csv .xlsx .ppt/.pptx .jpg/.jpeg/.png .py .js .html .css .json .md .ts/.tsx .jsx .zip。
-  - アップロード制限: 単一ファイル512 MB、テキスト&ドキュメント最大2Mトークン、CSV/スプレッドシート50 MB、画像20 MB。1回10ファイルまでupload化、GPTsあたり生涯20ファイル、ユーザー総量10 GB、組織総量100 GB。
-  - 大量データの学習にはCSVが推奨。CSVはUTF-8保存・カンマ区切り数値禁止など11項目の構造ルールを守ると解析精度が向上。
-  - 「ウェブ検索」・「キャンバス」・「4o 画像生成」・「コードインタープリターとデータ解析」の4機能はチェックボックスで個別にON/OFFできる。先頭3つは初期状態でONとなっている。
-  - 無料プランではGPTs作成不可・画像生成利用不可・ファイル解析に制限あり。3時間あたりの使用回数も有料より少ない。
-  - GPTsの作成限度個数は公式から明記なし。少なくとも1アカウントで100個以上は作成可能。
-  - GPTsストア公開による収益化機能は未解禁（2025-05時点）。公開範囲は「私だけ」「リンク共有」「GPTストア」から選択。
-  - 今後のGPTsストアの仕様次第だが、現状ではGPTsそのものを販売することは不可。直接的な譲渡もできないため、GPTsを他アカウントに移管したい場合は設定ファイル一式を譲渡して譲渡先管理者に手動で作成してもらう方法しかない。
-  - GPTsはチームプランでも作成可能だが、チーム環境で作成したGPTsは、そのチームから脱退すると編集が不可になる。リンク共有でGPTsの使用自体は可能。
-  - アイキャッチ画像はアップロードまたはDALL·E生成で設定できる。名称や説明には商標・誤認表現を含めないなど命名ガイドラインが存在。
-  - コードインタープリターを有効にするとPythonでの計算やCSV解析が可能。解析エラーはCSV構造の不備が主因のため、構造ルール順守が重要。
-```
+gpts_hybrid:
+  #----------------------------------------
+  overview:
+    structured:
+      pronunciation: "ジーピーティーエス"
+      base_model:
+        name: "GPT-4o"
+        user_changeable: false
+      self_learning: false
+    raw_facts:
+      - "GPTsの読みは「ジーピーティーエス」が正しい。"
+      - "GPTsのベースモデルはGPT-4o固定でユーザー側では変更不可。"
+      - "GPTs自体は自律学習しない"
+
+  #----------------------------------------
+  creation_and_access:
+    structured:
+      creation_path: "ChatGPTホーム ▸ 右上アカウントアイコン ▸ マイGPT ▸ GPTを作成する"
+      bookmark_tip: true
+      timeline_view: true            # マイGPT画面で時系列表示
+      minimal_required_fields: ["name", "instructions"]
+      paid_plan_required_for_creation: true
+      free_plan_creation_available: false
+    raw_facts:
+      - "編集画面へのアクセス方法は、「ChatGPTホーム画面の右上のアカウントアイコンをクリック ▸ マイGPT ▸ GPTを作成する」。GPTs作成画面をブラウザブックマークしておけばアクセスを時短可能。マイGPT画面ではこれまで作ったGPTsを時系列で確認できる。"
+      - "GPTsの「作成」には有料プラン加入が必須。無料ユーザーは「使用」のみ可能で回数制限が厳しい。"
+
+  #----------------------------------------
+  usage_limits:
+    structured:
+      default_rate_limit_per_3h: 80
+      pro_plan_unlimited: true
+      free_plan_lower_limits: true
+    raw_facts:
+      - "GPTsにおいても時間あたりの使用制限はGPT-4oと同じく、3時間あたり80回まで。最上位のProプランであれば無制限。"
+      - "無料プランではGPTs作成不可・画像生成利用不可・ファイル解析に制限あり。3時間あたりの使用回数も有料より少ない。"
+
+  #----------------------------------------
+  editing_permissions:
+    structured:
+      creator_only_editable: true
+      team_plan_editable_by_members: true
+      team_plan_leave_edit_lock: true   # 脱退後編集不可
+    raw_facts:
+      - "GPTsを編集できるのは作成者のみ。ただしチームプランであればチーム全員が編集画面にアクセス可能。"
+      - "GPTsはチームプランでも作成可能だが、チーム環境で作成したGPTsは、そのチームから脱退すると編集が不可になる。リンク共有でGPTsの使用自体は可能。"
+
+  #----------------------------------------
+  export_and_storage:
+    structured:
+      chat_log_export: false
+      settings_export: false
+      dedicated_project_folders: false
+      sidebar_listing: true
+    raw_facts:
+      - "回答ログを保持・エクスポート（PDFやCSVなど）する機能は一切存在しない。"
+      - "GPTsの設定そのものをエクスポートする機能は一切存在しない。"
+      - "ChatGPTプロジェクト機能のようにチャットを保管するための専用のフォルダ環境は存在しない。通常のChatGPTでのチャットと同じくサイドバーに表示される。"
+
+  #----------------------------------------
+  features:
+    structured:
+      system_prompt_max_chars: 8000
+      exceed_via_knowledge_file: true
+      voice_mode_available: true
+      voice_input_supported: true
+      advanced_voice_mode: true
+      toggles:
+        web_search:
+          default_on: true
+        canvas:
+          default_on: true
+        image_generation_4o:
+          default_on: true
+        code_interpreter_and_data_analysis:
+          default_on: false
+      image_generation:
+        general_engine: "GPT-4o Image Generation"
+        cover_image_engine: "DALL·E"
+        naming_guidelines_exists: true
+      code_interpreter:
+        python_analysis_enabled: true
+        csv_common_error_cause: "CSV 構造の不備"
+    raw_facts:
+      - "システムプロンプトは最大8,000文字。超過する指示はナレッジファイルで追加する。"
+      - "高度なボイスモード（Advanced voice mode）を使用可能。"
+      - "音声入力にも対応。"
+      - "「ウェブ検索」・「キャンバス」・「4o 画像生成」・「コードインタープリターとデータ解析」の4機能はチェックボックスで個別にON/OFFできる。先頭3つは初期状態でONとなっている。"
+      - "画像生成は GPT-4o Image Generation が利用可能。GPTsアイキャッチ自動生成は DALL·E 固定。"
+      - "アイキャッチ画像はアップロードまたはDALL·E生成で設定できる。名称や説明には商標・誤認表現を含めないなど命名ガイドラインが存在。"
+      - "コードインタープリターを有効にするとPythonでの計算やCSV解析が可能。解析エラーはCSV構造の不備が主因のため、構造ルール順守が重要。"
+
+  #----------------------------------------
+  knowledge_files:
+    structured:
+      upload_path: "知識 ▸ ファイルをアップロードする"
+      post_upload_required_action: "機能 ▸ コードインタープリターとデータ分析を ON"
+      editable_in_ui: false
+      update_method: "既存ファイル削除後に再アップロード"
+      supported_formats:
+        - .txt
+        - .pdf
+        - .doc
+        - .docx
+        - .csv
+        - .xlsx
+        - .ppt
+        - .pptx
+        - .jpg
+        - .jpeg
+        - .png
+        - .py
+        - .js
+        - .html
+        - .css
+        - .json
+        - .md
+        - .ts
+        - .tsx
+        - .jsx
+        - .zip
+      upload_limits:
+        single_file_mb: 512
+        text_token_limit: "2M tokens"
+        csv_spreadsheet_mb: 50
+        image_mb: 20
+        files_per_upload: 10
+        files_per_gpt_lifetime: 20
+        user_total_storage_gb: 10
+        org_total_storage_gb: 100
+      csv_best_practices: "UTF-8保存・カンマ区切り数値禁止など11項目"
+    raw_facts:
+      - "ナレッジファイルは編集画面「知識 ▸ ファイルをアップロードする」から追加する。"
+      - "ファイル追加後は必ず「機能 ▸ コードインタープリターとデータ分析」にチェックを入れる（初期OFF）。"
+      - "アップロードしたナレッジファイルをGPTsの編集画面上では編集が一切できない。ファイルの更新があった場合は、既存ファイルを削除して再アップが必須。"
+      - "GPTsにアップロードできる主なファイル形式: .txt .pdf .doc/.docx .csv .xlsx .ppt/.pptx .jpg/.jpeg/.png .py .js .html .css .json .md .ts/.tsx .jsx .zip。"
+      - "アップロード制限: 単一ファイル512 MB、テキスト&ドキュメント最大2Mトークン、CSV/スプレッドシート50 MB、画像20 MB。1回10ファイルまでupload化、GPTsあたり生涯20ファイル、ユーザー総量10 GB、組織総量100 GB。"
+      - "大量データの学習にはCSVが推奨。CSVはUTF-8保存・カンマ区切り数値禁止など11項目の構造ルールを守ると解析精度が向上。"
+
+  #----------------------------------------
+  api_and_actions:
+    structured:
+      add_api_action_path: "アクション ▸ 新しいアクションを設定する"
+    raw_facts:
+      - "API連携は「アクション ▸ 新しいアクションを設定する」で追加できる。"
+
+  #----------------------------------------
+  sharing_and_embedding:
+    structured:
+      sharing_options:
+        - 私だけ
+        - リンク共有
+        - GPTストア
+      share_link_one_time_only: true
+      external_embedding_supported: false
+    raw_facts:
+      - "共有リンクは一度のみ発行可能。再発行したい場合はGPTsを新規作成し直す。"
+      - "GPTsはChatGPT内限定機能で、外部サイトや独自ドメインへ直接埋め込むことはできない。"
+      - "GPTsストア公開による収益化機能は未解禁（2025-05時点）。公開範囲は「私だけ」「リンク共有」「GPTストア」から選択。"
+      - "今後のGPTsストアの仕様次第だが、現状ではGPTsそのものを販売することは不可。直接的な譲渡もできないため、GPTsを他アカウントに移管したい場合は設定ファイル一式を譲渡して譲渡先管理者に手動で作成してもらう方法しかない。"
+
+  #----------------------------------------
+  monetization_and_limits:
+    structured:
+      gpt_count_official_limit_disclosed: false
+      known_practical_creation_limit: "100+"
+      store_monetization_available: false
+    raw_facts:
+      - "GPTsの作成限度個数は公式から明記なし。少なくとも1アカウントで100個以上は作成可能。"
+
+  #----------------------------------------
+  data_privacy:
+    structured:
+      model_improvement_checkbox:
+        location: "追加設定（編集画面最下部）"
+        default_on: true
+        user_toggleable: true
+    raw_facts:
+      - "GPTs編集画面最下部「追加設定」に「GPTで会話データを使用してモデルを改善する」のチェックがあり、初期ON。不要なら手動でOFFにする。"
