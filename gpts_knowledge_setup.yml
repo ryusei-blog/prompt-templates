@@ -1,13 +1,9 @@
 tool:
-  id: gpts_knowledge_setup
+  id: chatgpt_gpts_knowledge_setup
   name: GPTs Knowledge Setup
   description: >
     GPTs 関連の記事執筆時に誤情報を防ぐための
     基本仕様・操作フロー・制約をセットアップするテンプレート。
-    読み込みが完了したら「読み込み完了しました。次の指示をお願いします。」とだけ返答してください。
-
-language: "ja"
-output_length: 200  # 読み込み確認メッセージのみを想定
 
 gpts_hybrid:
   #----------------------------------------
@@ -19,6 +15,7 @@ gpts_hybrid:
         user_changeable: false
       self_learning: false
     raw_facts:
+      - ChatGPTの機能の一部であり、カスタムGPTを作成できる。
       - "GPTsの読みは「ジーピーティーエス」が正しい。"
       - "GPTsのベースモデルはGPT-4o固定でユーザー側では変更不可。"
       - "GPTs自体は自律学習しない"
@@ -98,6 +95,7 @@ gpts_hybrid:
       - "音声入力にも対応。"
       - "「ウェブ検索」・「キャンバス」・「4o 画像生成」・「コードインタープリターとデータ解析」の4機能はチェックボックスで個別にON/OFFできる。先頭3つは初期状態でONとなっている。"
       - "画像生成は GPT-4o Image Generation が利用可能。GPTsアイキャッチ自動生成は DALL·E 固定。"
+      - "画像生成を行わせる場合は「機能」項目の「4o 画像生成」のチェックボックスをONにする。"
       - "アイキャッチ画像はアップロードまたはDALL·E生成で設定できる。名称や説明には商標・誤認表現を含めないなど命名ガイドラインが存在。"
       - "コードインタープリターを有効にするとPythonでの計算やCSV解析が可能。解析エラーはCSV構造の不備が主因のため、構造ルール順守が重要。"
 
