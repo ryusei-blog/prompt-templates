@@ -1,12 +1,4 @@
-tool:
-  id: chatgpt_gpts_knowledge_setup
-  name: GPTs Knowledge Setup
-  description: >
-    GPTs 関連の記事執筆時に誤情報を防ぐための
-    基本仕様・操作フロー・制約をセットアップするテンプレート。
-
 gpts_hybrid:
-  #----------------------------------------
   overview:
     structured:
       pronunciation: "ジーピーティーエス"
@@ -22,20 +14,18 @@ gpts_hybrid:
       - "GPTsとOpenAI APIは別物であり、GPTsのAPI連携（アクション）と同一に扱わない"
       - "「GPT」ではなく「GPTs」が正式名称（GPTシリーズとGPTsは別として扱う）"
 
-  #----------------------------------------
   creation_and_access:
     structured:
       creation_path: "ChatGPTホーム ▸ 右上アカウントアイコン ▸ マイGPT ▸ GPTを作成する"
       bookmark_tip: true
-      timeline_view: true            # マイGPT画面で時系列表示
+      timeline_view: true
       minimal_required_fields: ["name", "instructions"]
       paid_plan_required_for_creation: true
       free_plan_creation_available: false
     raw_facts:
       - "編集画面へのアクセス方法は、「ChatGPTホーム画面の右上のアカウントアイコンをクリック ▸ マイGPT ▸ GPTを作成する」。GPTs作成画面をブラウザブックマークしておけばアクセスを時短可能。マイGPT画面ではこれまで作ったGPTsを時系列で確認できる。"
-      - "GPTsの「作成」には有料プラン加入が必須。無料ユーザーは「使用」のみ可能で回数制限が厳しい。"
+      - "GPTsの「作成」にはいずれかの有料プラン（Plus/Team/Pro）加入が必須。無料ユーザーは「使用」のみ可能で回数制限が厳しい。"
 
-  #----------------------------------------
   usage_limits:
     structured:
       default_rate_limit_per_3h: 80
@@ -45,17 +35,19 @@ gpts_hybrid:
       - "GPTsにおいても時間あたりの使用制限はGPT-4oと同じく、3時間あたり80回まで。最上位のProプランであれば無制限。"
       - "無料プランではGPTs作成不可・画像生成利用不可・ファイル解析に制限あり。3時間あたりの使用回数も有料より少ない。"
 
-  #----------------------------------------
   editing_permissions:
     structured:
-      creator_only_editable: true
-      team_plan_editable_by_members: true
-      team_plan_leave_edit_lock: true   # 脱退後編集不可
+      team_plan_auto_editor_assignment: false
+      team_plan_manual_editor_grant_required: true
+      team_plan_auto_owner_transfer_on_member_removal: true
+      auto_transfer_target: "workspace_owner_or_admin"
+      cross_workspace_auto_transfer: false
     raw_facts:
-      - "GPTsを編集できるのは作成者のみ。ただしチームプランであればチーム全員が編集画面にアクセス可能。"
-      - "GPTsはチームプランでも作成可能だが、チーム環境で作成したGPTsは、そのチームから脱退すると編集が不可になる。リンク共有でGPTsの使用自体は可能。"
+      - "チームプランで作成したGPTsは初期状態では作成者だけがOwnerであり、他メンバーはEditor権限を持たない。"
+      - "Workspace Admin / Owner は『Share → Add Editors』で個別にEditorを追加できる。"
+      - "作成者がチームから削除された場合、GPTsは所有者不在となり、同一ワークスペースのWorkspace Owner または Admin に自動で所有権が再割り当てされる。"
+      - "GPTsが別のワークスペース（他チーム）へ自動譲渡される仕組みは存在しない。"
 
-  #----------------------------------------
   export_and_storage:
     structured:
       chat_log_export: false
@@ -67,7 +59,6 @@ gpts_hybrid:
       - "GPTsの設定そのものをエクスポートする機能は一切存在しない。"
       - "ChatGPTプロジェクト機能のようにチャットを保管するための専用のフォルダ環境は存在しない。通常のChatGPTでのチャットと同じくサイドバーに表示される。"
 
-  #----------------------------------------
   features:
     structured:
       system_prompt_max_chars: 8000
@@ -101,7 +92,6 @@ gpts_hybrid:
       - "アイキャッチ画像はアップロードまたはDALL·E生成で設定できる。名称や説明には商標・誤認表現を含めないなど命名ガイドラインが存在。"
       - "「コードインタープリターとデータ分析」を有効にするとPythonでの計算やCSV解析が可能。解析エラーはCSV構造の不備が主因のため、構造ルール順守が重要。"
 
-  #----------------------------------------
   knowledge_files:
     structured:
       upload_path: "知識 ▸ ファイルをアップロードする"
@@ -148,14 +138,12 @@ gpts_hybrid:
       - "アップロード制限: 単一ファイル512 MB、テキスト&ドキュメント最大2Mトークン、CSV/スプレッドシート50 MB、画像20 MB。1回10ファイルまでupload化、GPTsあたり生涯20ファイル、ユーザー総量10 GB、組織総量100 GB。"
       - "大量データの学習にはCSVが推奨。CSVはUTF-8保存・カンマ区切り数値禁止など11項目の構造ルールを守ると解析精度が向上。"
 
-  #----------------------------------------
   api_and_actions:
     structured:
       add_api_action_path: "アクション ▸ 新しいアクションを設定する"
     raw_facts:
       - "API連携は「アクション ▸ 新しいアクションを設定する」で追加できる。"
 
-  #----------------------------------------
   sharing_and_embedding:
     structured:
       sharing_options:
@@ -170,7 +158,6 @@ gpts_hybrid:
       - "GPTsストア公開による収益化機能は未解禁（2025-05時点）。公開範囲は「私だけ」「リンク共有」「GPTストア」から選択。"
       - "今後のGPTsストアの仕様次第だが、現状ではGPTsそのものを販売することは不可。直接的な譲渡もできないため、GPTsを他アカウントに移管したい場合は設定ファイル一式を譲渡して譲渡先管理者に手動で作成してもらう方法しかない。"
 
-  #----------------------------------------
   monetization_and_limits:
     structured:
       gpt_count_official_limit_disclosed: false
@@ -179,7 +166,6 @@ gpts_hybrid:
     raw_facts:
       - "GPTsの作成限度個数は公式から明記なし。少なくとも1アカウントで100個以上は作成可能。"
 
-  #----------------------------------------
   data_privacy:
     structured:
       model_improvement_checkbox:
