@@ -1,7 +1,7 @@
 gpts_hybrid:
   overview:
     structured:
-      pronunciation: "ジーピーティーエス"
+      pronunciation: "GPTs（ジーピーティーエス）"
       base_model:
         name: "GPT-4o"
         user_changeable: false
