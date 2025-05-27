@@ -1,0 +1,119 @@
+metadata:
+  title: "ChatGPT Deep Research Knowledge Base"
+  version: "1.0.0"
+  last_updated: "2025-05-27"
+  objective: >
+    Give any LLM a single-document reference that exhaustively captures what
+    Deep Research is, how it works, how to use it safely, and its current
+    feature/plan matrix.
+
+overview: >
+  Deep Research is an agentic mode inside ChatGPT that autonomously plans,
+  browses, evaluates and synthesizes online information (text, PDFs, images and
+  data files) to deliver a fully-cited research report at analyst level depth,
+  typically in 5 – 30 minutes.
+
+core_capabilities:
+  - multi_step_reasoning: >
+      Uses an o3-derived browsing-optimized model to iteratively search,
+      filter, read, run Python code when needed, and refine its plan.
+  - full_source_transparency: >
+      Every factual claim is footnoted with live web citations inside the
+      final report.
+  - file_context_ingestion: >
+      Users can attach spreadsheets, slides or PDFs that are treated as first-class
+      sources during analysis.
+  - clarifying_questions: >
+      Before running, Deep Research may ask follow-up questions to tighten scope
+      and avoid wasted runtime.
+  - asynchronous_execution: >
+      Research runs even if the chat window is closed; users receive a
+      notification when the report is ready.
+
+access_and_usage_limits:
+  query_allowances:
+    free: 5
+    plus: 25
+    team: 25
+    enterprise: 25
+    pro: 250
+  rollout_history:
+    - date: "2025-02-02"
+      event: "Initial launch to Pro (US) with 120 queries."
+    - date: "2025-02-05"
+      event: "Expanded to Pro users in UK, CH, EEA."
+    - date: "2025-02-25"
+      event: "Plus, Team, Edu & Enterprise support (10→25 queries later)."
+    - date: "2025-04-24"
+      event: "Lightweight o4-mini version introduced; quotas raised."
+
+workflow_phases:
+  - id: clarify_request
+    description: "Ask user for scope, timeframe, angle, deliverable format."
+  - id: exploration
+    description: "Plan search paths, crawl web & attachments, rank sources."
+  - id: analysis
+    description: "Run reasoning chain, Python calculations & visualisations."
+  - id: synthesis
+    description: "Draft narrative, tables, charts with inline citations."
+  - id: delivery
+    description: "Return final report PDF/markdown inside chat with sidebar provenance."
+
+prompting_guidelines:
+  principles:
+    - "State *why* the research matters and the intended decision."
+    - "Specify audience expertise & preferred output style early."
+    - "Bound scope with concrete dimensions: geography, timeframe, metrics."
+    - "Demand depth: patterns, contradictions, strategic implications."
+  recommended_meta_prompt: |
+    ## High-Impact Deep Research Request
+    *Purpose*: {{goal}}
+    *Audience*: {{stakeholder}}
+    *Key questions*:
+      1. {{question_1}}
+      2. {{question_2}}
+    *Sources*: prefer peer-reviewed, industry reports, filings.
+    *Timeframe*: {{period}}
+    *Deliverable*: executive summary + detailed appendix with tables.
+
+best_practices:
+  - "Provide rich context and seed data to shorten clarification loops."
+  - "Use bullets or numbered lists in your prompt for easier agent parsing."
+  - "For time-sensitive topics, request sources newer than a given date."
+
+limitations_and_risks:
+  - "May hallucinate if domain data is scarce; always verify citations."
+  - "Runtime can exceed 30 min on complex queries; no progress mid-run."
+  - "Lightweight mode has lower depth once full quota is exhausted."
+  - "Security: uploading sensitive internal docs risks data exposure—ensure zero-retention or masking."
+
+security_recommendations:
+  - "Mask or anonymize proprietary data before upload."
+  - "Enable activity logging & audit trails for compliance."
+  - "Draft internal policy defining acceptable Deep Research use."
+
+common_use_cases:
+  - competitive_analysis
+  - market_entry_studies
+  - literature_reviews
+  - regulatory_landscape_monitoring
+  - high-ticket_purchase_guides
+  - technical_due_diligence
+
+example_prompts:
+  quick_start: >
+    “Compare the top three battery-electric SUVs sold in Japan in 2024 on
+    range, price, and customer satisfaction, then recommend the best choice
+    for families of four.”  
+    _(expected 8-10 min runtime)_
+  enterprise_template: |
+    I am {{role}} at {{company}}.
+    We need a Deep Research report on "{{strategic_question}}".
+    • Geographic scope: {{region}}
+    • Time horizon: {{years}}
+    • Deliverables: executive summary, full appendix, strategy implications.
+    • Attachments: {{file_list}}
+
+future_roadmap_insights:
+  - "OpenAI plans embedded visualisations and data charts inside reports."
+  - "Potential integration with knowledge graph APIs for live updates."
