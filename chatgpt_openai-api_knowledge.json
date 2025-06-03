@@ -1,0 +1,174 @@
+{
+  "platform_comparison": {
+    "ChatGPT": {
+      "access": "Web／公式モバイルアプリから対話形式で利用",
+      "model_selection": "プランごとに固定・制限（無料: GPT-4o mini／Plus: GPT-4o 等）",
+      "pricing": "月額サブスクリプション（無料・Plus・Pro など）",
+      "ease_of_use": "プログラミング不要、UI が整備され初心者向け",
+      "typical_use": "日常チャット、学習、簡易タスク"
+    },
+    "OpenAI_API": {
+      "access": "HTTP API をコードから呼び出し",
+      "model_selection": "GPT-3.5／GPT-4 Turbo／GPT-4o／o3-mini など自由に指定",
+      "pricing": "従量課金（トークン単位）",
+      "customization": "system メッセージ・function calling・ファインチューニング対応",
+      "typical_use": "自作アプリ・業務システムへの組み込み、自動化ワークフロー"
+    }
+  },
+  "model_timeline": [
+    {
+      "name": "GPT-1",
+      "release_date": "2018-06-11",
+      "series": "GPT",
+      "status": "released",
+      "summary": "初代 Transformer 言語モデル（約1.17億パラメータ）。研究用途のみ。"
+    },
+    {
+      "name": "GPT-2",
+      "release_date": "2019-02-14",
+      "series": "GPT",
+      "status": "released",
+      "summary": "15億パラメータ。段階的公開で注目を集め、生成品質が話題に。"
+    },
+    {
+      "name": "GPT-3",
+      "release_date": "2020-05-11",
+      "series": "GPT",
+      "status": "released",
+      "summary": "1750億パラメータ。API 提供開始で商用利用が本格化。"
+    },
+    {
+      "name": "GPT-3.5",
+      "release_date": "2022-11-30",
+      "series": "GPT",
+      "status": "released",
+      "summary": "ChatGPT 無料版で採用。RLHF により指示追従性向上。"
+    },
+    {
+      "name": "GPT-4",
+      "release_date": "2023-03-14",
+      "series": "GPT",
+      "status": "released",
+      "summary": "推論精度を大幅強化。8K/32K コンテキスト。Plus 向け。"
+    },
+    {
+      "name": "GPT-4 Turbo",
+      "release_date": "2023-11-06",
+      "series": "GPT",
+      "status": "released",
+      "summary": "128K コンテキストと高速化／低コストを実現した GPT-4 改良版。"
+    },
+    {
+      "name": "GPT-4o (Omni)",
+      "release_date": "2024-05-13",
+      "series": "GPT-4o",
+      "status": "released",
+      "summary": "テキスト・画像・音声・動画のネイティブ統合。無料ユーザーにも回数制限付き開放。"
+    },
+    {
+      "name": "GPT-4o mini",
+      "release_date": "2024-07-18",
+      "series": "GPT-4o",
+      "status": "released",
+      "summary": "軽量版 GPT-4o。無料版 ChatGPT の標準モデル。128K 対応かつ高速。"
+    },
+    {
+      "name": "o1-preview",
+      "release_date": "2024-09-12",
+      "series": "o",
+      "status": "released",
+      "summary": "多段階推論を試験導入した初代 o 系モデル。Plus 限定。"
+    },
+    {
+      "name": "o1",
+      "release_date": "2024-12-05",
+      "series": "o",
+      "status": "released",
+      "summary": "o1-preview の正式版。推論精度向上と応答高速化。"
+    },
+    {
+      "name": "o1-pro-mode",
+      "release_date": "2024-12-06",
+      "series": "o",
+      "status": "released",
+      "summary": "最深推論設定。ChatGPT Pro 専用。API 非対応。"
+    },
+    {
+      "name": "o3-mini",
+      "release_date": "2025-01-31",
+      "series": "o",
+      "status": "released",
+      "summary": "高速・低コストの小型 o3。数理・コードに強く入力 1Mtoken=1.10USD。"
+    },
+    {
+      "name": "o3-mini-high",
+      "release_date": "2025-01-31",
+      "series": "o",
+      "status": "released",
+      "summary": "o3-mini の高推論版。高精度だがレイテンシ増。"
+    },
+    {
+      "name": "GPT-4.5",
+      "release_date": "2025-02-27",
+      "series": "GPT",
+      "status": "released",
+      "summary": "GPT-4 系の中間アップデート。256K コンテキスト。速度は遅め。"
+    },
+    {
+      "name": "GPT-4.1 (API)",
+      "release_date": "2025-04-14",
+      "series": "GPT",
+      "status": "released",
+      "summary": "API 専用 100 万トークン対応モデル。コード生成性能向上。"
+    },
+    {
+      "name": "o3",
+      "release_date": "2025-04-16",
+      "series": "o",
+      "status": "released",
+      "summary": "マルチモーダル統合と最高推論力。Plus/Pro/Team で利用可。"
+    },
+    {
+      "name": "o4-mini",
+      "release_date": "2025-04-16",
+      "series": "o",
+      "status": "released",
+      "summary": "o3 の知性を軽量化。高速・低コスト。"
+    },
+    {
+      "name": "o4-mini-high",
+      "release_date": "2025-04-16",
+      "series": "o",
+      "status": "released",
+      "summary": "o4-mini の高推論設定。長文読解に強い。"
+    },
+    {
+      "name": "GPT-4.1 (ChatGPT)",
+      "release_date": "2025-05-14",
+      "series": "GPT",
+      "status": "released",
+      "summary": "ChatGPT で選択可能になった 4.1。無料枠は 4.1 mini。"
+    },
+    {
+      "name": "o3-pro",
+      "release_date": "TBD",
+      "series": "o",
+      "status": "upcoming",
+      "summary": "o1-pro 後継とされるプロ向け高推論モデル。"
+    },
+    {
+      "name": "GPT-5",
+      "release_date": "TBD",
+      "series": "GPT",
+      "status": "upcoming",
+      "summary": "AGI に最も近い存在と噂される次世代モデル。"
+    },
+    {
+      "name": "GPT-5.5",
+      "release_date": "TBD",
+      "series": "GPT",
+      "status": "upcoming",
+      "summary": "OpenAI が AGI と呼ぶ可能性がある拡張版。"
+    }
+  ]
+}
