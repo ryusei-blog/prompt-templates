@@ -3,13 +3,14 @@ gpts_hybrid:
     structured:
       pronunciation: "GPTs（ジーピーティーエス）"
       base_model:
-        name: "GPT-4o"
-        user_changeable: false
+        name: "通常ChatGPTで選択可能な全てのAIモデル"
+        user_changeable: true
       self_learning: false
     raw_facts:
       - ChatGPTの機能の一部であり、カスタムGPTを作成できる。
       - "GPTsの読みは「ジーピーティーエス」が正しい。"
-      - "GPTsのベースモデルはGPT-4o固定でユーザー側では変更不可。"
+      - "GPTsのAIモデルは通常ChatGPTと同じAIモデルから選択可能で、ユーザー側もモデルピッカーから自由に選択できる。"
+      - "GPTs作者が選択した「Recommended Model」は、ユーザー側には「GPT creator recommended」と表示される。AIモデルによってシステムプロンプトの書き方を変えることが望ましいため、ユーザーはGPT creator recommendedのAIモデルを選択する方が無難。"
       - "GPTs自体は自律学習しない"
       - "GPTsとOpenAI APIは別物であり、GPTsのAPI連携（アクション）と同一に扱わない"
       - "「GPT」ではなく「GPTs」が正式名称（GPTシリーズとGPTsは別として扱う）"
@@ -28,11 +29,11 @@ gpts_hybrid:
 
   usage_limits:
     structured:
-      default_rate_limit_per_3h: 80
+      default_rate_limit: "使用AIモデルに依存する。"
       pro_plan_unlimited: true
       free_plan_lower_limits: true
     raw_facts:
-      - "GPTsにおいても時間あたりの使用制限はGPT-4oと同じく、3時間あたり80回まで。最上位のProプランであれば無制限。"
+      - "AIモデルを自由切り替えが可能であるため、AIモデルごとの使用制限が適用される。例えばGPT-4oなら、3時間あたり80回まで。どのAIモデルであれど、最上位のProプランであれば無制限に使用可能。"
       - "無料プランではGPTs作成不可・画像生成利用不可・ファイル解析に制限あり。3時間あたりの使用回数も有料より少ない。"
 
   editing_permissions:
