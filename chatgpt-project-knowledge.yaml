@@ -1,0 +1,35 @@
+metadata: 
+  - information_updata_date: 2025_06_17
+chatgpt_project:
+  overview:
+    description: "Folder-based workspace that groups related chats and uploaded files for long-term tasks."
+
+  requirements:
+    paid_plan_only: true            # Plus / Pro / Team / Enterprise
+    free_plan_supported: false
+
+  core_capabilities:
+    chat_folder_management: true
+    multiple_chats_per_project: true
+    file_upload: true
+    persistent_file_reference: true
+    model_selection_per_chat: true
+    share_individual_chat: true
+
+  unsupported_capabilities:
+    share_entire_project: false
+    embed_custom_gpt: false         # GPTs cannot be run inside a project
+    external_api_access: false
+
+  limits:
+    system_prompt_characters: 8000
+
+  integrations:
+    canvas_workspace: true
+    advanced_data_analysis: true
+
+  typical_use_cases:
+    - long_term_project_management
+    - multi_document_research
+    - large_codebase_review
+    - product_development_planning
