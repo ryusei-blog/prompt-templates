@@ -1,9 +1,11 @@
+metadata: 
+  - information_updata_date: 2025_06_14
 gpts_hybrid:
   overview:
     structured:
       pronunciation: "GPTs（ジーピーティーエス）"
-      base_model:
-        name: "通常ChatGPTで選択可能な全てのAIモデル"
+      select_ai_model:
+        description: "通常ChatGPTで選択可能な全てのAIモデルを使用可能。"
         user_changeable: true
       self_learning: false
     raw_facts:
