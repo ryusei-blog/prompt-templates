@@ -1,0 +1,38 @@
+purpose: avoid_prohibited_programming_patterns
+bad_practices:
+  - id: 1
+    code: magic_number
+    label: "マジックナンバー／マジック文字列"
+    problem: "値の意味が見えず、変更箇所が散在し保守が困難になる"
+    example: 'if (status === 3) { … }'
+    remedy: "意味のある定数に置換し設定ファイルやenumで集中管理する"
+  - id: 2
+    code: hardcoded_secret
+    label: "機密情報をコードに直書き"
+    problem: "リポジトリ流出時に情報漏洩の重大リスク"
+    example: 'const SECRET = "myStripeKey123";'
+    remedy: ".envなど秘密情報ストアを利用し環境変数として注入する"
+  - id: 3
+    code: global_variable_abuse
+    label: "グローバル変数の乱用"
+    problem: "依存関係が複雑化しテスト困難、予期せぬ副作用が発生"
+    example: 'window.userData = …'
+    remedy: "モジュール化し依存性注入や関数引数で受け渡す"
+  - id: 4
+    code: copy_paste_programming
+    label: "コピペプログラミング（重複コード）"
+    problem: "バグが拡散し修正漏れが起こる"
+    example: "同じロジックを複数箇所にコピー"
+    remedy: "共通関数化しDRY原則を徹底する"
+  - id: 5
+    code: empty_catch
+    label: "空のcatchで例外無視"
+    problem: "エラー原因が記録されず問題が隠蔽される"
+    example: 'try { … } catch (e) { }'
+    remedy: "例外をログし再スローまたは復旧処理を行う"
+  - id: 6
+    code: string_concat_sql
+    label: "SQLを文字列連結で生成"
+    problem: "SQLインジェクションの脆弱性を生む"
+    example: '"SELECT * FROM users WHERE id=" + req.query.id'
+    remedy: "プリペアドステートメントやプレースホルダを使用する"
