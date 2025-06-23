@@ -1,0 +1,23 @@
+world_model_prompt:
+  goal: >
+    
+  current_state: >
+    
+  constraints: >
+    
+  expected_outcome: >
+    
+  steps:
+    
+  feedback_loop:
+    
+  abstractions: >
+    
+  context_memory: >
+    
+  tool_usage: >
+    
+  reflection_prompt: >
+    
+  reference_material: >
+    
